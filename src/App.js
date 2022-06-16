@@ -1,23 +1,24 @@
-import logo from './logo.svg';
+import React from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { holaMundo } from './redux/actions';
+
 import './App.css';
 
 function App() {
+
+  const dispatch = useDispatch();
+  const viewHolaMundo = useSelector(state => state.holaMundo); 
+
+  let handleClick = function() {
+    dispatch(holaMundo());
+  }
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <button onClick = {handleClick}>Toggle Hola Mundo</button>
+      {
+        viewHolaMundo && <h1>Hola Mundo</h1>
+      }
     </div>
   );
 }

@@ -1,0 +1,1 @@
+export const HOLA_MUNDO = 'HOLA_MUNDO';
